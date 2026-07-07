@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>One Unopened Letter</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="blackScreen"></div>
+
+<div class="game">
+
+    <!-- LOADING -->
+
+    <section id="loading" class="screen active">
+
+        <h2>Loading</h2>
+
+        <div class="loadingBar">
+            <div id="progress"></div>
+        </div>
+
+        <p id="loadingText">
+            Preparing your letter.
+        </p>
+
+    </section>
+
+    <!-- TITLE -->
+
+    <section id="title" class="screen">
+
+        <h1>
+            ONE<br>
+            UNOPENED<br>
+            LETTER
+        </h1>
+
+        <p class="recipient">
+            For Charlon
+        </p>
+
+        <button id="continueBtn">
+            ► OPEN LETTER
+        </button>
+
+    </section>
+
+    <!-- OPENING -->
+
+    <section id="opening" class="screen">
+
+        <div class="envelope">
+            ✉
+        </div>
+
+        <p id="openingText">
+            Opening...
+        </p>
+
+    </section>
+
+    <!-- CHOICE -->
+
+    <section id="choice" class="screen">
+
+        <h2>
+            Will you open it?
+        </h2>
+
+        <div class="buttonGroup">
+
+            <button id="yesBtn">
+                YEY OFC!
+            </button>
+
+            <button id="noBtn">
+                NAAAH
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- CREEPY -->
+
+    <section id="creepy" class="screen">
+
+        <img
+            src="assets/images/creepy.png"
+            id="creepyBg"
+            alt="">
+
+        <p id="creepyText">
+            ...
+        </p>
+
+    </section>
+
+    <!-- JUMPSCARE -->
+
+    <img
+        src="assets/images/jumpscare.png"
+        id="jumpscareImg"
+        alt="">
+
+    <!-- AUDIO -->
+
+    <audio id="horror" loop>
+
+        <source
+            src="assets/audio/horror.mp3"
+            type="audio/mpeg">
+
+    </audio>
+    <audio id="bgm" loop>
+    <source src="assets/audio/bgm.mp3" type="audio/mpeg">
+</audio>
+
+    <!-- ENVELOPE -->
+
+    <section id="letterIntro" class="screen">
+
+        <div class="bigEnvelope">
+
+            <img
+                src="assets/images/envelope.png"
+                id="envelope"
+                alt="Envelope">
+
+        </div>
+
+        <button id="openEnvelopeBtn">
+            OPEN ENVELOPE
+        </button>
+
+    </section>
+
+    <!-- LETTER -->
+
+    <section id="letter" class="screen">
+
+        <div class="letterContainer">
+
+            <img
+                src="assets/images/classphoto.jpg"
+                id="classPhoto"
+                alt="Class Photo">
+
+            <div class="paper">
+
+                <p id="letterContent"></p>
+
+            </div>
+
+        </div>
+
+        <button
+            id="nextBtn"
+            style="display:none;">
+
+            Continue ▶
+
+        </button>
+
+    </section>
+
+    <!-- END -->
+
+    <section id="ending" class="screen">
+
+        <h2>
+
+            Memory Archived.
+
+        </h2>
+
+        <p>
+
+            Saved Successfully.
+
+            <br><br>
+
+            Next Level:
+            Real Life
+
+        </p>
+
+    </section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

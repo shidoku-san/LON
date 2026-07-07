@@ -1,0 +1,342 @@
+@font-face{
+    font-family:"Pixel";
+    src:url("assets/fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+
+:root{
+    --bg:#4a1823;
+    --window:#6b2435;
+    --gold:#d9b347;
+    --paper:#f7f1e5;
+    --shadow:#2c0c13;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:var(--bg);
+    font-family:"Pixel";
+    color:var(--paper);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    padding:20px;
+    
+}
+body{
+    user-select:none;
+}
+.game{
+    width:min(92vw,620px);
+    min-height:650px;
+    background:var(--window);
+    border:4px solid var(--gold);
+    box-shadow:10px 10px 0 var(--shadow);
+    padding:45px 35px;
+    position:relative;
+    overflow:hidden;
+}
+
+.game::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:2px solid rgba(255,255,255,.08);
+    pointer-events:none;
+}
+
+.screen{
+    display:none;
+    height:100%;
+}
+
+.screen.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    min-height:560px;
+}
+
+h1{
+    font-size:20px;
+    line-height:1.9;
+    margin-bottom:35px;
+}
+
+h2{
+    font-size:14px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:10px;
+    line-height:2;
+}
+
+.recipient{
+    margin-bottom:40px;
+}
+
+.recipient::after{
+    content:"▋";
+    animation:blink .9s infinite;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+button{
+    font-family:"Pixel";
+    font-size:10px;
+    background:var(--gold);
+    color:var(--bg);
+    border:none;
+    padding:16px 22px;
+    cursor:pointer;
+    transition:.15s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+}
+
+.buttonGroup{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    width:240px;
+}
+
+#continueBtn{
+    width:240px;
+}
+
+/* ---------------- LOADING ---------------- */
+
+.loadingBar{
+    width:260px;
+    height:16px;
+    border:2px solid var(--gold);
+    margin:25px 0;
+    overflow:hidden;
+}
+
+#progress{
+    width:0;
+    height:100%;
+    background:var(--gold);
+}
+
+/* ---------------- OPENING ---------------- */
+
+.envelope{
+    font-size:58px;
+    margin-bottom:25px;
+    animation:bounce 1s infinite;
+}
+
+/* ---------------- CREEPY ---------------- */
+
+#creepy{
+    position:relative;
+    overflow:hidden;
+}
+
+#creepyBg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    image-rendering:pixelated;
+    opacity:.45;
+    z-index:0;
+}
+
+#creepyText{
+    font-size:22px;
+    position:absolute;
+    bottom:35px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    text-align:center;
+    color:#fff;
+    line-height:2;
+    text-shadow:2px 2px 4px #000;
+    z-index:2;
+}
+
+/* ---------------- JUMPSCARE ---------------- */
+
+#jumpscareImg{
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    object-fit:cover;
+    display:none;
+    z-index:99999;
+    image-rendering:pixelated;
+}
+
+#blackScreen{
+    position:fixed;
+    inset:0;
+    background:#000;
+    display:none;
+    z-index:99998;
+}
+
+/* ---------------- LETTER ---------------- */
+
+.letterContainer{
+    position:relative;
+    width:100%;
+    max-width:520px;
+}
+
+.paper{
+    background:var(--paper);
+    color:#40231d;
+    width:100%;
+    border:4px solid var(--gold);
+    padding:30px;
+    text-align:left;
+    min-height:300px;
+    margin-top:40px;
+}
+
+.paper p{
+    text-align:justify;
+    line-height:2;
+}
+
+#classPhoto{
+    position:absolute;
+    width:120px;
+    top:-10px;
+    right:-12px;
+    transform:rotate(8deg);
+    border:4px solid white;
+    box-shadow:6px 6px 0 var(--shadow);
+    image-rendering:pixelated;
+    z-index:5;
+}
+
+#nextBtn{
+    align-self:flex-end;
+    margin-top:18px;
+}
+
+/* ---------------- END ---------------- */
+
+.bigEnvelope{
+    margin-bottom:30px;
+}
+
+#envelope{
+    width:170px;
+    image-rendering:pixelated;
+    transition:.3s;
+}
+
+.open{
+    animation:openEnvelope .7s forwards;
+}
+
+/* ---------------- ANIMATIONS ---------------- */
+
+@keyframes blink{
+    50%{
+        opacity:0;
+    }
+}
+
+@keyframes bounce{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes openEnvelope{
+    0%{
+        transform:rotate(0deg) scale(1);
+    }
+    20%{
+        transform:rotate(-6deg);
+    }
+    40%{
+        transform:rotate(6deg);
+    }
+    60%{
+        transform:rotate(-4deg);
+    }
+    100%{
+        transform:translateY(-25px) scale(.92);
+        opacity:0;
+    }
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:600px){
+
+    .game{
+        padding:28px 20px;
+        min-height:580px;
+    }
+
+    h1{
+        font-size:15px;
+    }
+
+    h2{
+        font-size:11px;
+    }
+
+    p{
+        font-size:8px;
+    }
+
+    button{
+        width:100% !important;
+        font-size:8px;
+    }
+
+    .buttonGroup{
+        width:100%;
+    }
+
+    .loadingBar{
+        width:100%;
+    }
+
+    #classPhoto{
+        width:85px;
+        top:-8px;
+        right:-5px;
+    }
+
+    #nextBtn{
+        margin-top:15px;
+    }
+
+    #creepyText{
+        width:92%;
+        bottom:20px;
+    }
+}
